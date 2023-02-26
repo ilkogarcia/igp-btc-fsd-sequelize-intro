@@ -7,7 +7,7 @@ const app = express();
 
 app.use(express.json());
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3000;
 
 app.get('/welcome', (req, res) => {
     return res.send("Bienvenido a mi app")
@@ -59,8 +59,15 @@ app.put('/products/:id', async (req, res) => {
     const productId = req.params.id;
 
     const name = req.body.name;
+    const description = req.body.description;
+    const price = req.body.price;
 
-    const updateProduct = await Product.update({name: name}, {where: {id: productId}})
+    const updateProduct = await Product.update({
+        name: name,
+        description: description,
+        price: price
+        },
+        {where: {id: productId}});
 
     return res.json(updateProduct);
 

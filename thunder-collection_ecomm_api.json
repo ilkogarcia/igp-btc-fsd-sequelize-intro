@@ -1,0 +1,103 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "ecomm_api",
+    "dateExported": "2023-02-26T11:37:38.128Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c5a3eb98-24c4-4352-ac57-51494976ddc3",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_welcome",
+            "url": "http://localhost:3000/welcome/",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-02-26T11:13:43.196Z",
+            "modified": "2023-02-26T11:14:18.625Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "44551d84-b3e7-463d-8104-c7d518a9a526",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_products_add",
+            "url": "http://localhost:3000/products/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-02-26T11:15:51.618Z",
+            "modified": "2023-02-26T11:29:42.308Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Philips S3230/52 Serie 3000 Afeitadora eléctrica\",\n  \"description\": \"Philips S3230/52 Serie 3000 Afeitadora eléctrica en seco o húmedo y cortapatillas desplegable con funda de viaje\",\n  \"price\": 67.15\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "08a74731-f993-4849-b0f1-e6ab39a71853",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_products_list",
+            "url": "http://localhost:3000/products/",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-02-26T11:23:46.823Z",
+            "modified": "2023-02-26T11:24:06.125Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "756f77d1-9e61-42f7-973b-31d9644cdc12",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_products_getProductById",
+            "url": "http://localhost:3000/products/1/",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-02-26T11:25:46.269Z",
+            "modified": "2023-02-26T11:26:28.171Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d2864624-070e-4f67-948a-cc49daf4d39e",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_products_deleteProductById",
+            "url": "http://localhost:3000/products/2/",
+            "method": "DELETE",
+            "sortNum": 70000,
+            "created": "2023-02-26T11:27:25.423Z",
+            "modified": "2023-02-26T11:28:41.341Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "888cb8d8-bdb7-4612-95c8-fd9a42252868",
+            "colId": "e4a865ca-fe6e-4a1d-8c1c-2213512a714b",
+            "containerId": "",
+            "name": "ecomm_api_products_updateProductById",
+            "url": "http://localhost:3000/products/3/",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-02-26T11:34:11.073Z",
+            "modified": "2023-02-26T11:36:17.992Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Exprimidor de Naranjas Eléctrico ZitrusEasy Inox\",\n  \"description\": \"Cecotec Exprimidor Naranjas Eléctrico ZitrusEasy Inox. 40 W, Filtro de Acero Inoxidable, Tambor de 1 Litro BPA Free, Doble Sentido de Giro, Doble Cono y Cubierta Antipolvo\",\n  \"price\": 20.00\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
