@@ -1,8 +1,8 @@
 const { Product } = require('../models/index');
 
-const ProductService = {};
+module.exports = class ProductService{
     
-    ProductService.getAllProducts = async () => {
+    static async getAllProducts(){
         try {
             const allProducts = await Product.findAll();
             return allProducts;
@@ -11,21 +11,20 @@ const ProductService = {};
         }
     }
 
-    ProductService.createProduct = async (data) => {
+    static async createProduct(data){
         try {
             const newProduct = {
                 name: data.name,
                 description: data.description,
                 price: data.price
             }
-        const response = await new Product.create(newProduct);
+        const response = await Product.create(newProduct);
         return response;
         } catch (error) {
             console.log(error);
         } 
     }
-
-    ProductService.getProductbyId = async (productId) => {
+    static async getProductbyId(productId){
         try {
             const singleProductResponse =  await Product.findByPk(productId);
             return singleProductResponse;
@@ -34,21 +33,20 @@ const ProductService = {};
         }
     }
 
-    ProductService.updateProduct = async (productId, name, description, price) => {
-            try {
-                const updateResponse =  await Product.update({
-                    name: name,
-                    description: description,
-                    price: price
-                },
-                {where: {id: productId}});
-                return updateResponse;
-            } catch (error) {
-                console.log(`Could not update Product ${error}` );
-            }
+    static async updateProduct(productID, productData){
+        try {
+            const response = await Product.update({
+                name: productData.name,
+                description: productData.description,
+                price: productData.price
+            },{where:{id: productID}});
+            return response;
+        } catch (error) {
+            console.log(`Could not update Product ${error}` );
+        }
     }
 
-    ProductService.deleteProduct = async (productId) => {
+    static async deleteProduct(productId){
         try {
             const deletedResponse = await Product.destroy({where: { id: productId}});
             return deletedResponse;
@@ -56,5 +54,4 @@ const ProductService = {};
             console.log(`Could  ot delete product ${error}`);
         }
     }
-
-module.exports = ProductService;
+}

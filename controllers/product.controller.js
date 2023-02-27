@@ -1,8 +1,8 @@
 const ProductService = require("../services/ProductService");
 
-const ProductCtrl = {};
+module.exports = class ProductCtrl{
 
-    ProductCtrl.apiGetAllProducts = async (req, res) => {
+    static async apiGetAllProducts(req, res){
         try {
             const products = await ProductService.getAllProducts();
             if(!products){
@@ -14,7 +14,7 @@ const ProductCtrl = {};
         }
     }
 
-    ProductCtrl.apiGetProductById = async (req, res) => {
+    static async apiGetProductById(req, res){
         try {
             let id = req.params.id || {};
             const product = await ProductService.getProductbyId(id);
@@ -24,9 +24,8 @@ const ProductCtrl = {};
         }
     }
 
-    ProductCtrl.apiCreateProduct = async (req, res) => {
+    static async apiCreateProduct(req, res){
         try {
-            console.log(req.body);
             const createdProduct = await ProductService.createProduct(req.body);
             res.json(createdProduct);
         } catch (error) {
@@ -34,15 +33,11 @@ const ProductCtrl = {};
         }
     }
 
-    ProductCtrl.apiUpdateProduct = async (req, res) => {
+    static async apiUpdateProduct(req, res){
         try {
-            const comment = {}
-            comment.name = req.body.name;
-            comment.description = req.body.description;
-            comment.price = req.body.price
-            const updatedProduct = await ProductService.updateProduct(comment);
-            if(updatedProduct.modifiedCount === 0){
-                throw new Error("Unable to update product, error occord");
+            const updatedProduct = await ProductService.updateProduct(req.params.id, req.body);
+            if (updatedProduct === 0) {
+                throw Error("Unable to update product, error occord");
             }
             res.json(updatedProduct);
         } catch (error) {
@@ -50,7 +45,7 @@ const ProductCtrl = {};
         }
     }
 
-    ProductCtrl.apiDeleteProduct = async (req, res) => {
+    static async apiDeleteProduct(req, res){
         try {
             const productId = req.params.id;
             const deleteResponse =  await ProductService.deleteProduct(productId)
@@ -60,4 +55,4 @@ const ProductCtrl = {};
         }
     }
 
-module.exports = ProductCtrl;
+}
