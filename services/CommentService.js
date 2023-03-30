@@ -1,10 +1,10 @@
 // Importa el modelo Sequelize que usamos para gestionar la tabla Commento
 const { Comment } = require('../models/index');
 
-// Clase que contendrá todos los métodos disponibles en el servicio de productos
+// Clase que contendrá todos los métodos disponibles en el servicio de comentarios
 module.exports = class CommentService{
 
-    // Obtiene todos los productos de la tabla productos
+    // Obtiene todos los comentarios  de la tabla comentarios
     static getAllComments = async () => {
         try {
             const allComments = await Comment.findAll();
